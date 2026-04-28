@@ -1,4 +1,4 @@
-/* ===== COLOR VARIABLES (reusable theme colors) ===== */
+/* ===== COLOR VARIABLES ===== */
 :root {
   --blush: #F9E4EC;
   --rose: #E8A0B4;
@@ -6,79 +6,181 @@
   --mauve: #9B5B72;
 }
 
-/* Reset default browser spacing */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Page styling */
+/* Page */
 body {
   font-family: 'Nunito', sans-serif;
   background: var(--blush);
+  overflow-x: hidden; /* prevents scroll from petals */
 }
 
-/* Top decorative bar */
+/* Top bar */
 .top-bar {
   height: 6px;
   background: linear-gradient(to right, pink, gold, purple);
 }
 
-/* Floating petals container */
+/* ===== PETALS BACKGROUND ===== */
 .petal-bg {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  pointer-events: none; /* allows clicking through */
+  z-index: 0;
 }
 
 /* Individual petal */
 .petal {
   position: absolute;
+  top: -20px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  opacity: 0.7;
   animation: drift linear infinite;
 }
 
-/* Animation for falling petals */
+/* Smooth falling animation */
 @keyframes drift {
-  from { transform: translateY(-50px); }
-  to { transform: translateY(100vh); }
+  0% {
+    transform: translateY(-50px) translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) translateX(30px);
+    opacity: 0;
+  }
 }
 
-/* Navigation bar */
+/* ===== CONTENT LAYER ===== */
+nav, .card, h1 {
+  position: relative;
+  z-index: 1; /* keeps UI above petals */
+}
+
+/* Navigation */
 nav {
   text-align: center;
   padding: 1rem;
 }
 
-/* Main heading */
+/* Heading */
 h1 {
   font-size: 3rem;
   text-align: center;
+  color: var(--mauve);
 }
 
-/* Card container */
+/* Card */
 .card {
   background: white;
-  padding: 1rem;
+  padding: 1.5rem;
   margin: 2rem auto;
   max-width: 400px;
   border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
-/* Inputs and dropdowns */
+/* Inputs */
 input, select {
   width: 100%;
   padding: 0.7rem;
   margin-top: 0.5rem;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
+/* Focus effect */
+input:focus, select:focus {
+  border-color: var(--rose);
 }
 
 /* Buttons */
 button {
-  cursor: pointer;
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 12px;
+  background: var(--rose);
+  color: white;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
-/* Result section (hidden by default) */
+/* Hover effect */
+button:hover {
+  background: var(--rose-dk);
+}
+
+/* Active gender button */
+button.active {
+  background: var(--mauve);
+}
+
+/* ===== RESULT PANEL ===== */
 .result-panel {
   display: none;
   text-align: center;
+  margin-top: 1.5rem;
+  animation: fadeIn 0.5s ease;
+}
+
+/* Result text */
+#result-name {
+  font-size: 2rem;
+  color: var(--rose-dk);
+}
+
+#result-day {
+  color: var(--mauve);
+  margin-bottom: 0.5rem;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* PARAGRAPH */
+p {
+  text-align: center;
+}
+/*STRONG */
+strong {
+  display: block;
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--mauve);
+  margin-bottom: 0.5rem;
+}
+/* HERO */
+.hero-circle {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle at center, var(--rose) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 0;
+}
+/* HERO EMOJI */
+.hero-emoji {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3rem;
+  z-index: 1;
 }

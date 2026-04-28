@@ -1,43 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Basic page setup -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Akan Name Generator</title>
 
-  <!-- Google Fonts for styling text -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Nunito&display=swap" rel="stylesheet"/>
 
-  <!-- Link to external CSS file -->
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- Decorative top gradient bar -->
   <div class="top-bar"></div>
 
-  <!-- Background container where floating petals will be added via JS -->
+  <!-- Petals -->
   <div class="petal-bg" id="petal-bg"></div>
 
-  <!-- Navigation bar (top title/logo) -->
+  <!-- Nav -->
   <nav>
     <p class="nav-logo">✦ Akan <span>Name</span> Generator ✦</p>
   </nav>
 
-  <!-- Hero section (main heading) -->
+  <!-- Hero -->
   <header>
-    <div class="hero-circle"></div> <!-- decorative circle -->
-    <span class="hero-emoji">🌸</span>
-    <h1>Discover Your <em>Akan Name</em></h1>
+    <div class="hero-circle"></div>
+    <span class="hero-emoji"></span>
 
-    <!-- Short description -->
+    <h1 style="text-align: center;">Discover Your <em>Akan Name</em></h1>
+
     <p class="hero-tagline">
       Enter your birthday and discover your Akan name.
     </p>
 
-    <!-- Small feature badges -->
     <div class="hero-badges">
       <span class="badge">Ghanaian Heritage</span>
       <span class="badge">Day of Birth</span>
@@ -45,63 +40,74 @@
     </div>
   </header>
 
-  <!-- About section explaining Akan names -->
+  <!-- About -->
   <div class="about-section">
-    <strong>🌸 About Akan Names</strong>
-    Akan names are given based on the day of birth.
+    <strong > About Akan Names</strong>
+    <p>Akan names are given based on the day of birth in Ghanaian culture.</p>
   </div>
 
-  <!-- Main content -->
+  <!-- Main -->
   <main>
     <div class="card">
 
-      <!-- Card header -->
+      <!-- Header -->
       <div class="card-header">
         <span>⭐</span>
         <div>
           <p>Find Your Name</p>
-          <p>Enter your birthday</p>
+          <small>Enter your birthday</small>
         </div>
       </div>
 
       <div class="card-body">
 
-        <!-- Day input -->
+        <!-- Day -->
         <label>Day</label>
-        <input type="number" id="birth-day">
+        <input type="number" id="birth-day" min="1" max="31" placeholder="e.g. 15">
 
-        <!-- Month and Year -->
+        <!-- Month + Year -->
         <div class="row-two">
           <select id="birth-month">
             <option value="">Month</option>
             <option value="1">January</option>
-            <!-- remaining months -->
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
           </select>
 
-          <input type="number" id="birth-year" placeholder="Year">
+          <input type="number" id="birth-year" placeholder="Year (e.g. 2005)">
         </div>
 
-        <!-- Gender selection -->
+        <!-- Gender -->
         <label>Gender</label>
         <div class="gender-group">
-          <button id="btn-male">Male</button>
-          <button id="btn-female">Female</button>
+          <button type="button" id="btn-male">Male</button>
+          <button type="button" id="btn-female">Female</button>
         </div>
 
-        <!-- Error messages -->
+        <!-- Alerts -->
         <div id="alert-box"></div>
 
-        <!-- Button to generate Akan name -->
-        <button id="btn-generate">Reveal My Akan Name</button>
+        <!-- Generate -->
+        <button type="button" id="btn-generate">
+          Reveal My Akan Name
+        </button>
 
-        <!-- Result section (hidden until user clicks generate) -->
-        <div id="result-panel">
+        <!-- Result -->
+        <div id="result-panel" class="result-panel">
           <p id="result-name"></p>
           <p id="result-meaning"></p>
           <span id="result-day"></span>
 
-          <!-- Reset button -->
-          <button id="btn-reset">Try Again</button>
+          <button type="button" id="btn-reset">Try Again</button>
         </div>
 
       </div>
@@ -113,10 +119,8 @@
     <p>&copy; <span id="footer-year"></span></p>
   </footer>
 
-  <!-- Bottom decorative bar -->
   <div class="bottom-bar"></div>
 
-  <!-- Link to JavaScript -->
   <script src="script.js"></script>
 
 </body>
