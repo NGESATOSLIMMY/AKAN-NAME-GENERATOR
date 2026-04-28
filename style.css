@@ -73,3 +73,5 @@
     font-weight: bold;
     cursor: pointer;
   }
+
+    #btn-generate:hover { background: #E8B84B; }
