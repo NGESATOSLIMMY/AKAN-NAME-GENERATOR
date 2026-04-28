@@ -90,3 +90,13 @@
 
     #result h2 { color: #FAF3E0; }
   #result-name { color: #C8952A; font-size: 1.6rem; }
+
+   #btn-reset {
+    margin-top: 12px;
+    padding: 8px 20px;
+    background: transparent;
+    border: 1px solid #C8952A;
+    color: #C8952A;
+    border-radius: 4px;
+    cursor: pointer;
+  }
