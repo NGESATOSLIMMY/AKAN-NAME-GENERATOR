@@ -11,7 +11,7 @@ This project uses HTML, CSS, and JavaScript to create an interactive and visuall
 
 - Name: Emmanuel Ngesa  
 - Location: Nairobi, Kenya  
-- GitHub: (add your GitHub link here)
+- GitHub: (https://github.com/NGESATOSLIMMY)
 
 
 
