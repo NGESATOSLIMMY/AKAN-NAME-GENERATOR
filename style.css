@@ -184,3 +184,12 @@ strong {
   font-size: 3rem;
   z-index: 1;
 }
+span.badge {
+  display: inline-block;
+  background: var(--rose);
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
