@@ -55,3 +55,8 @@
     cursor: pointer;
     font-size: 0.95rem;
   }
+  #btn-male.active, #btn-female.active {
+    background: #1E4D2B;
+    color: #C8952A;
+    border-color: #1E4D2B;
+  }
