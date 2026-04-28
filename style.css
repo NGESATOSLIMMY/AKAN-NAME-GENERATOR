@@ -44,3 +44,14 @@
     font-size: 1rem;
     font-family: Georgia, serif;
   }
+
+   /* Gender buttons */
+  #btn-male, #btn-female {
+    padding: 10px 30px;
+    margin: 8px 8px 0 0;
+    border: 2px solid #d4b880;
+    border-radius: 4px;
+    background: #fdf8ee;
+    cursor: pointer;
+    font-size: 0.95rem;
+  }
