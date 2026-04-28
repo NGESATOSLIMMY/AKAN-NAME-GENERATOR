@@ -35,3 +35,12 @@
     font-size: 0.8rem;
     color: #1E4D2B;
   }
+
+  input, select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #d4b880;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: Georgia, serif;
+  }
