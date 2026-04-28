@@ -3,16 +3,16 @@
 // ===============================
 
 // Get the container where petals will appear
-var petalBg = document.getElementById('petal-bg');
+const petalBg = document.getElementById('petal-bg');
 
 // Colors used for petals
-var colours = ['pink', 'gold', 'purple'];
+const colours = ['pink', 'gold', 'purple'];
 
 // Create 15 petals
-for (var i = 0; i < 15; i++) {
+for (let i = 0; i < 15; i++) {
 
   // Create a new div element (this is one petal)
-  var p = document.createElement('div');
+  const p = document.createElement('div');
   p.className = 'petal';
 
   // Random horizontal position (0% to 100%)
@@ -22,14 +22,14 @@ for (var i = 0; i < 15; i++) {
   p.style.background = colours[Math.floor(Math.random() * colours.length)];
 
   // Random size (makes petals look natural)
-  var size = 8 + Math.random() * 10;
+  const size = 8 + Math.random() * 10;
   p.style.width = size + 'px';
   p.style.height = size + 'px';
 
   // Random falling speed
   p.style.animationDuration = (4 + Math.random() * 4) + 's';
 
-  // Random delay so they don’t all fall together
+  // Random delay so they don't all fall together
   p.style.animationDelay = Math.random() * 5 + 's';
 
   // Add petal to screen
@@ -41,7 +41,7 @@ for (var i = 0; i < 15; i++) {
 // 🇬🇭 AKAN NAME DATA
 // ===============================
 
-var AKAN_NAMES = {
+const AKAN_NAMES = {
   Sunday:    { male: "Kwasi",   female: "Akosua" },
   Monday:    { male: "Kwadwo",  female: "Adwoa" },
   Tuesday:   { male: "Kwabena", female: "Abenaa" },
@@ -52,7 +52,7 @@ var AKAN_NAMES = {
 };
 
 // Days of the week (used for mapping numbers → names)
-var DAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const DAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
 
 // ===============================
@@ -60,7 +60,7 @@ var DAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturda
 // ===============================
 
 // Stores selected gender (male or female)
-var selectedGender = null;
+let selectedGender = null;
 
 // When male button is clicked
 document.getElementById('btn-male').onclick = function() {
@@ -87,9 +87,9 @@ document.getElementById('btn-female').onclick = function() {
 document.getElementById('btn-generate').onclick = function() {
 
   // Step 1: Get input values from user
-  var day = parseInt(document.getElementById('birth-day').value);
-  var month = parseInt(document.getElementById('birth-month').value);
-  var year = parseInt(document.getElementById('birth-year').value);
+  const day = parseInt(document.getElementById('birth-day').value);
+  const month = parseInt(document.getElementById('birth-month').value);
+  const year = parseInt(document.getElementById('birth-year').value);
 
   // Step 2: Check if anything is missing
   if (!day || !month || !year || !selectedGender) {
@@ -115,11 +115,11 @@ document.getElementById('btn-generate').onclick = function() {
   // CC = 20 (century)
   // YY = 05 (year part)
 
-  var CC = Math.floor(year / 100);
-  var YY = year % 100;
+  const CC = Math.floor(year / 100);
+  const YY = year % 100;
 
-  var MM = month;
-  var DD = day;
+  const MM = month;
+  const DD = day;
 
 
   // ===============================
@@ -127,7 +127,7 @@ document.getElementById('btn-generate').onclick = function() {
   // ===============================
   // This formula converts date → weekday number (0–6)
 
-  var d = Math.floor(
+  let d = Math.floor(
     ((4 * CC - 2 * CC - 1) +     // century part
     (5 * YY / 4) +              // year part
     (26 * (MM + 1) / 10) +      // month part
@@ -143,13 +143,13 @@ document.getElementById('btn-generate').onclick = function() {
   // ===============================
   // STEP 6: GET DAY NAME
   // ===============================
-  var dayName = DAYS[d];
+  const dayName = DAYS[d];
 
 
   // ===============================
   //  STEP 7: GET AKAN NAME
   // ===============================
-  var name = AKAN_NAMES[dayName][selectedGender];
+  const name = AKAN_NAMES[dayName][selectedGender];
 
 
   // Safety check
