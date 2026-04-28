@@ -75,3 +75,15 @@
   }
 
     #btn-generate:hover { background: #E8B84B; }
+
+     /* Result box */
+  #result {
+    background: #1E4D2B;
+    border: 3px solid #C8952A;
+    border-radius: 8px;
+    padding: 24px;
+    text-align: center;
+    margin-top: 24px;
+    max-width: 480px;
+    width: 100%;
+  }
