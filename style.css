@@ -1,102 +1,260 @@
- body {
-    font-family: Georgia, serif;
-    background-color: #1E4D2B;
-    color: #FAF3E0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px 20px;
-    min-height: 100vh;
- }
- h1 {
-    color: #C8952A;
-    font-size: 2.5rem;
-    margin-bottom: 8px;
-  }
-  /* The white card */
-  form {
-    background: #FFFDF5;
-    color: #3D1F00;
-    padding: 30px;
-    border-radius: 8px;
-    width: 100%;
-    max-width: 480px;
-    margin-top: 20px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
-  }
+/* ── COLOUR PALETTE ─────────────────────────────── */
+:root {
+  --blush:      #F9E4EC;
+  --rose:       #E8A0B4;
+  --rose-dk:    #C4687E;
+  --mauve:      #9B5B72;
+  --gold:       #D4A853;
+  --gold-lt:    #F0CC80;
+  --lavender:   #EDE0F5;
+  --purple:     #A881C0;
+  --white:      #FFFAFE;
+  --text:       #4A2535;
+  --text-light: #9B7080;
+}
 
-  
-  label {
-    display: block;
-    font-weight: bold;
-    margin-top: 16px;
-    margin-bottom: 4px;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    color: #1E4D2B;
-  }
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
 
-  input, select {
-    width: 100%;
-    padding: 10px;
-    border: 2px solid #d4b880;
-    border-radius: 4px;
-    font-size: 1rem;
-    font-family: Georgia, serif;
-  }
+body {
+  background-color: var(--blush);
+  font-family: 'Nunito', sans-serif;
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
 
-   /* Gender buttons */
-  #btn-male, #btn-female {
-    padding: 10px 30px;
-    margin: 8px 8px 0 0;
-    border: 2px solid #d4b880;
-    border-radius: 4px;
-    background: #fdf8ee;
-    cursor: pointer;
-    font-size: 0.95rem;
-  }
-  #btn-male.active, #btn-female.active {
-    background: #1E4D2B;
-    color: #C8952A;
-    border-color: #1E4D2B;
-  }
-   /* Main generate button */
-  #btn-generate {
-    margin-top: 24px;
-    width: 100%;
-    padding: 12px;
-    background: #C8952A;
-    color: #3D1F00;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-  }
+/* ── DECORATIVE TOP BAR ─────────────────────────── */
+.top-bar {
+  height: 6px;
+  background: linear-gradient(90deg,
+    var(--rose) 0%, var(--gold) 25%, var(--purple) 50%,
+    var(--rose-dk) 75%, var(--gold-lt) 100%);
+}
 
-    #btn-generate:hover { background: #E8B84B; }
+/* ── FLOATING PETALS BACKGROUND ─────────────────── */
+.petal-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.petal {
+  position: absolute;
+  border-radius: 50% 0 50% 0;
+  opacity: 0.12;
+  animation: drift linear infinite;
+}
+@keyframes drift {
+  0%   { transform: translateY(-60px) rotate(0deg);   opacity: 0; }
+  10%  { opacity: 0.12; }
+  90%  { opacity: 0.08; }
+  100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}
 
-     /* Result box */
-  #result {
-    background: #1E4D2B;
-    border: 3px solid #C8952A;
-    border-radius: 8px;
-    padding: 24px;
-    text-align: center;
-    margin-top: 24px;
-    max-width: 480px;
-    width: 100%;
-  }
+/* ── NAV / HEADER ───────────────────────────────── */
+nav {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  background: rgba(255,250,254,0.7);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(228,160,180,0.3);
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--mauve);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.nav-logo span { color: var(--gold); }
 
-    #result h2 { color: #FAF3E0; }
-  #result-name { color: #C8952A; font-size: 1.6rem; }
+/* ── HERO HEADER ────────────────────────────────── */
+header {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  padding: 4rem 1.5rem 3rem;
+}
 
-   #btn-reset {
-    margin-top: 12px;
-    padding: 8px 20px;
-    background: transparent;
-    border: 1px solid #C8952A;
-    color: #C8952A;
-    border-radius: 4px;
-    cursor: pointer;
-  }
+/* Big decorative circle behind the title */
+.hero-circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,160,180,0.3) 0%, rgba(168,129,192,0.1) 70%, transparent 100%);
+  position: absolute;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.hero-emoji {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 0.5rem;
+  animation: pulse 3s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,100% { transform: scale(1); }
+  50%      { transform: scale(1.08); }
+}
+
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 7vw, 4rem);
+  font-weight: 700;
+  color: var(--mauve);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}
+h1 em {
+  font-style: italic;
+  color: var(--rose-dk);
+}
+
+.hero-tagline {
+  margin-top: 0.9rem;
+  font-size: 1rem;
+  color: var(--text-light);
+  font-weight: 400;
+  max-width: 400px;
+  margin-inline: auto;
+  line-height: 1.65;
+}
+
+/* Little pill badges */
+.hero-badges {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-top: 1.2rem;
+}
+.badge {
+  background: white;
+  border: 1px solid var(--rose);
+  color: var(--rose-dk);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+}
+
+/* ── ABOUT CARD ─────────────────────────────────── */
+.about-section {
+  position: relative;
+  z-index: 5;
+  max-width: 520px;
+  margin: 0 auto 0.5rem;
+  padding: 1.3rem 1.8rem;
+  background: white;
+  border-radius: 20px;
+  border: 1.5px solid rgba(232,160,180,0.5);
+  box-shadow: 0 4px 24px rgba(196,104,126,0.08);
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: var(--text-light);
+}
+.about-section strong {
+  color: var(--mauve);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+}
+
+/* ── MAIN WRAPPER ───────────────────────────────── */
+main {
+  position: relative;
+  z-index: 5;
+  max-width: 520px;
+  margin: 2rem auto 3rem;
+  padding: 0 1.2rem;
+}
+
+/* ── CARD ───────────────────────────────────────── */
+.card {
+  background: var(--white);
+  border-radius: 28px;
+  border: 1.5px solid rgba(232,160,180,0.4);
+  box-shadow:
+    0 2px 0 rgba(232,160,180,0.5),
+    0 12px 40px rgba(155,91,114,0.12),
+    0 40px 80px rgba(155,91,114,0.06);
+  overflow: hidden;
+}
+
+.card-header {
+  background: linear-gradient(135deg, var(--rose) 0%, var(--purple) 100%);
+  padding: 1.3rem 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.card-header-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+}
+
+.card-body { padding: 2rem 1.8rem; }
+
+/* ── INPUTS ─────────────────────────────────────── */
+input, select {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 14px;
+  border: 1.5px solid rgba(232,160,180,0.6);
+}
+
+/* ── BUTTON ─────────────────────────────────────── */
+.btn-generate {
+  margin-top: 1.8rem;
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, var(--rose-dk), var(--purple));
+  color: white;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+/* ── RESULT ─────────────────────────────────────── */
+.result-panel {
+  display: none;
+  margin-top: 1.6rem;
+  background: linear-gradient(135deg, #fce8f3, var(--lavender));
+  border-radius: 20px;
+  padding: 1.5rem;
+  text-align: center;
+}
+.result-name {
+  font-size: 2.8rem;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* ── FOOTER ─────────────────────────────────────── */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+/* ── BOTTOM BAR ─────────────────────────────────── */
+.bottom-bar {
+  height: 6px;
+  background: linear-gradient(90deg,
+    var(--gold-lt) 0%, var(--rose) 25%, var(--purple) 50%,
+    var(--gold) 75%, var(--rose-dk) 100%);
+}
