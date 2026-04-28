@@ -1,60 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Akan Name Generator</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+
+  <!-- External CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <h1>Akan Name Generator</h1>
-  <p>Discover your Ghanaian soul-name based on your birthday.</p>
-  <form id="akan-form">
+  <div class="top-bar"></div>
+  <div class="petal-bg" id="petal-bg"></div>
 
-  <!-- Day input -->
-  <label for="birth-day">Day of Birth</label>
-  <input type="number" id="birth-day" placeholder="e.g. 14" min="1" max="31" />
+  <nav>
+    <p class="nav-logo">&#10022; Akan <span>Name</span> Generator &#10022;</p>
+  </nav>
 
-  <!-- Month input -->
-  <label for="birth-month">Month</label>
-  <!--select+options give a dropdown menu-->
-  <select id="birth-month">
-    <option value="">— Select Month —</option>
-    <option value="1">January</option>
-    <option value="2">February</option>
-    <option value="3">March</option>
-    <option value="4">April</option>
-    <option value="5">May</option>
-    <option value="6">June</option>
-    <option value="7">July</option>
-    <option value="8">August</option>
-    <option value="9">September</option>
-    <option value="10">October</option>
-    <option value="11">November</option>
-    <option value="12">December</option>
-  </select>
+  <header>
+    <div class="hero-circle"></div>
+    <span class="hero-emoji">&#127801;</span>
+    <h1>Discover Your <em>Akan Name</em></h1>
+    <p class="hero-tagline">
+      Every girl deserves to know her soul-name. Enter your birthday
+      and let the Akan tradition reveal who you truly are.
+    </p>
+    <div class="hero-badges">
+      <span class="badge">&#10022; Ghanaian Heritage</span>
+      <span class="badge">&#9825; Day of Birth</span>
+      <span class="badge">&#10022; Soul Names</span>
+    </div>
+  </header>
 
-  <!-- Year input -->
-  <label for="birth-year">Year</label>
-  <input type="number" id="birth-year" placeholder="e.g. 1995" min="1900" max="2026" />
+  <div class="about-section">
+    <strong>&#127801; About Akan Names</strong>
+    Among the Akan people of Ghana and C&ocirc;te d&rsquo;Ivoire, every child receives
+    a <em>day-name</em> (Kra din) at birth &mdash; one for each day of the week.
+  </div>
 
-  <!-- Gender -->
-  <label>Gender</label>
-  <button type="button" id="btn-male">Male</button>
-  <button type="button" id="btn-female">Female</button>
+  <main>
+    <div class="card">
 
-  <!-- Submit -->
-  <br/><br/>
-  <button type="button" id="btn-generate">Find My Akan Name</button>
+      <div class="card-header">
+        <span class="card-header-icon">&#127775;</span>
+        <div>
+          <p class="card-header-text">Find Your Name</p>
+          <p class="card-header-sub">Fill in your birthday details below</p>
+        </div>
+      </div>
 
-</form>
+      <div class="card-body">
 
-<!-- Result shows here -->
-<div id="result" style="display:none;">
-  <h2>Your Akan Name is: <span id="result-name"></span></h2>
-  <p id="result-meaning"></p>
-  <p id="result-day"></p>
-  <button type="button" id="btn-reset">Try Again</button>
-</div>
-<script src="script.js" defer></script>
+        <label>Day of Birth</label>
+        <input type="number" id="birth-day">
+
+        <div class="row-two">
+          <select id="birth-month">
+            <option value="">Month</option>
+            <option value="1">January</option>
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+          </select>
+
+          <input type="number" id="birth-year" placeholder="Year">
+        </div>
+
+        <label>Gender</label>
+        <div class="gender-group">
+          <button class="gender-btn" id="btn-male">&#9794; Male</button>
+          <button class="gender-btn" id="btn-female">&#9792; Female</button>
+        </div>
+
+        <div class="alert-box" id="alert-box"></div>
+
+        <button class="btn-generate" id="btn-generate">
+          Reveal My Akan Name
+        </button>
+
+        <div class="result-panel" id="result-panel">
+          <p class="result-name" id="result-name"></p>
+          <p id="result-meaning"></p>
+          <span id="result-day"></span>
+          <button id="btn-reset">Reset</button>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="footer-year"></span></p>
+  </footer>
+
+  <div class="bottom-bar"></div>
+
+  <!-- External JS -->
+  <script src="script.js"></script>
 </body>
 </html>
