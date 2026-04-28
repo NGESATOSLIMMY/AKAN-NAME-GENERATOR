@@ -60,3 +60,16 @@
     color: #C8952A;
     border-color: #1E4D2B;
   }
+   /* Main generate button */
+  #btn-generate {
+    margin-top: 24px;
+    width: 100%;
+    padding: 12px;
+    background: #C8952A;
+    color: #3D1F00;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
