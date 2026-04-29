@@ -22,3 +22,10 @@ To run this project locally:
 1. Download or clone the repository:
    ```bash
    git clone https://ngesatoslimmy.github.io/AKAN-NAME-GENERATOR/
+
+   CopyWrite
+   © 2026 Emmanuel Ngesa. All rights reserved.
+
+This project and its contents are the intellectual property of Emmanuel Ngesa. Unauthorized copying, distribution, modification, or use of any part of this project without explicit permission is strictly prohibited.
+
+Permission is granted to use this project for personal and educational purposes only. Commercial use, reproduction, or redistribution requires prior written consent from the author.
