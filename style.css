@@ -1,9 +1,10 @@
 /* ===== COLOR VARIABLES ===== */
 :root {
-  --blush: #F9E4EC;
-  --rose: #E8A0B4;
-  --rose-dk: #C4687E;
-  --mauve: #9B5B72;
+  --blush: #f9e4ec;
+  --rose: #e8a0b4;
+  --rose-dk: #c4687e;
+  --mauve: #9b5b72;
+  
 }
 
 /* Reset */
@@ -15,9 +16,8 @@
 
 /* Page */
 body {
-  font-family: 'Nunito', sans-serif;
-  background: var(--blush);
-  overflow-x: hidden; /* prevents scroll from petals */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   
 }
 
 /* Top bar */
@@ -61,7 +61,9 @@ body {
 }
 
 /* ===== CONTENT LAYER ===== */
-nav, .card, h1 {
+nav,
+.card,
+h1 {
   position: relative;
   z-index: 1; /* keeps UI above petals */
 }
@@ -86,11 +88,12 @@ h1 {
   margin: 2rem auto;
   max-width: 400px;
   border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 /* Inputs */
-input, select {
+input,
+select {
   width: 100%;
   padding: 0.7rem;
   margin-top: 0.5rem;
@@ -100,7 +103,8 @@ input, select {
 }
 
 /* Focus effect */
-input:focus, select:focus {
+input:focus,
+select:focus {
   border-color: var(--rose);
 }
 
@@ -148,12 +152,20 @@ button.active {
 
 /* Fade animation */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 /* PARAGRAPH */
 p {
   text-align: center;
+  color: aliceblue;
+  font-family: PLayfair Display, serif;
 }
 /*STRONG */
 strong {
@@ -162,34 +174,12 @@ strong {
   font-size: 1.5rem;
   color: var(--mauve);
   margin-bottom: 0.5rem;
+  font-family: PLayfair Display, serif;
 }
-/* HERO */
-.hero-circle {
-  position: absolute;
-  top: -50px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 150px;
-  height: 150px;
-  background: radial-gradient(circle at center, var(--rose) 0%, transparent 70%);
-  border-radius: 50%;
-  z-index: 0;
-}
-/* HERO EMOJI */
-.hero-emoji {
-  position: absolute;
-  top: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 3rem;
-  z-index: 1;
-}
-span.badge {
-  display: inline-block;
-  background: var(--rose);
-  color: white;
-  padding: 0.2rem 0.5rem;
-  border-radius: 8px;
-  font-size: 0.8rem;
-  margin-top: 0.5rem;
-}
+
+
+
+ body{
+  background-image:url(kratos.jpg);
+   background-size: cover;
+ }
